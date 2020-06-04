@@ -1,0 +1,99 @@
+{
+  "responseId": "b2e48a07-fbbc-4817-8437-55192693fcb1-b4a98e7e",
+  "queryResult": {
+    "queryText": "48 kg",
+    "parameters": {
+      "unit-weight": {
+        "amount": 48,
+        "unit": "kg"
+      },
+      "date-time": "",
+      "userNmae": ""
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentText": "thanks for sharing weight which is @unit-weight",
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            "thanks for sharing weight which is @unit-weight"
+          ]
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/smart-weight-tracker/agent/intents/03af8ea0-7fd7-4572-9433-ebd2bf04146f",
+      "displayName": "User Weight"
+    },
+    "intentDetectionConfidence": 0.8488637,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "source": "google",
+    "version": "2",
+    "payload": {
+      "user": {
+        "locale": "en-US",
+        "lastSeen": "2020-06-04T11:23:09Z",
+        "userVerificationStatus": "VERIFIED"
+      },
+      "conversation": {
+        "conversationId": "ABwppHEs60bfTJupo9pJEZQ1GIUf1Vo4ohCOKos5Yp2ymD-ETo7pvTjc9BoxOq7EjVnmSMntso2LOBJTaQ_ggX5ZENQ",
+        "type": "ACTIVE",
+        "conversationToken": "[]"
+      },
+      "inputs": [
+        {
+          "intent": "actions.intent.TEXT",
+          "rawInputs": [
+            {
+              "inputType": "VOICE",
+              "query": "48 kg"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "text",
+              "rawText": "48 kg",
+              "textValue": "48 kg"
+            }
+          ]
+        }
+      ],
+      "surface": {
+        "capabilities": [
+          {
+            "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+          },
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          },
+          {
+            "name": "actions.capability.SCREEN_OUTPUT"
+          },
+          {
+            "name": "actions.capability.ACCOUNT_LINKING"
+          }
+        ]
+      },
+      "isInSandbox": true,
+      "availableSurfaces": [
+        {
+          "capabilities": [
+            {
+              "name": "actions.capability.AUDIO_OUTPUT"
+            },
+            {
+              "name": "actions.capability.SCREEN_OUTPUT"
+            },
+            {
+              "name": "actions.capability.WEB_BROWSER"
+            }
+          ]
+        }
+      ],
+      "requestType": "SIMULATOR"
+    }
+  },
+  "session": "projects/smart-weight-tracker/agent/sessions/ABwppHEs60bfTJupo9pJEZQ1GIUf1Vo4ohCOKos5Yp2ymD-ETo7pvTjc9BoxOq7EjVnmSMntso2LOBJTaQ_ggX5ZENQ"
+}

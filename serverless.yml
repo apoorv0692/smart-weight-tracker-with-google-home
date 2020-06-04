@@ -1,0 +1,36 @@
+service: smart-weight-tracker-1
+
+provider:
+  name: google
+  credentials: /Users/apoorvshrivastava/.gcloud/smart-weight-tracker-9f4a13ed21f3.json
+  runtime: python37
+  region: us-central1
+  project: smart-weight-tracker
+  # memorySize: 256
+  # timeout: 300
+ 
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore 
+    - __pycache__/**
+    - tests/**
+    - package.json
+    - package-lock.json
+
+functions:
+  mainFn:
+    handler: main
+    events:
+      - http: path
+        cors: true # @cors_headers() from lambda_decorators package also used on functions
+        Content-Type: application/json
+
+plugins:
+  - serverless-python-requirements
+  - serverless-google-cloudfunctions
+
+
+custom:
+  pythonRequirements:
+    pythonBin: "/usr/bin/python3"
