@@ -1,3 +1,4 @@
+import json
 import pymongo
 from datetime import datetime
 
@@ -9,14 +10,15 @@ today = datetime.today()
 # atlas_user = "smart_weight_tracker"
 # atlas_pass = "2HK7CFMrobkE1ybY"
 
-#function to insert user weight with todays date in db
-def insertTodb(usrWeight,usrName):
-    
+def insertWeight(usrWeight,usrName):
     insertWeight = {
-    "Date" : today,
-    "Name" : usrName,
+    "date" : today,
+    "name" : usrName,
     "weight" : usrWeight
     }
-
+    #call to insert user weight and name with todays date in db
     db.weightLog.insert_one(insertWeight)
+
+def fetchLastLog(usrName):
+
 

@@ -3,12 +3,13 @@
   "queryResult": {
     "queryText": "48 kg",
     "parameters": {
+      "userName": "Abhishek",
       "unit-weight": {
         "amount": 48,
         "unit": "kg"
       },
       "date-time": "",
-      "userNmae": ""
+      "userNmae": "Atul"
     },
     "allRequiredParamsPresent": true,
     "fulfillmentText": "thanks for sharing weight which is @unit-weight",

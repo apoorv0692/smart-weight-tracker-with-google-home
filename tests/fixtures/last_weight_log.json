@@ -1,0 +1,206 @@
+{
+    "responseId": "70b2327e-1dbd-445e-b539-bd777ab8edf5-b4a98e7e",
+    "queryResult": {
+      "queryText": "what was my weight yesterday",
+      "parameters": {
+        "userName": "Apoorv",
+        "userweight": "weight",
+        "last_weight_log": "last"
+      },
+      "allRequiredParamsPresent": true,
+      "fulfillmentText": "Apoorv Your last weight log was",
+      "fulfillmentMessages": [
+        {
+          "text": {
+            "text": [
+              "Apoorv Your last weight log was"
+            ]
+          }
+        }
+      ],
+      "outputContexts": [
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/welcome",
+          "lifespanCount": 5,
+          "parameters": {
+            "given-name": "Apoorv",
+            "given-name.original": "apoorv",
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/last_weight_log-followup",
+          "lifespanCount": 2,
+          "parameters": {
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/actions_capability_screen_output",
+          "parameters": {
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/actions_capability_audio_output",
+          "parameters": {
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/actions_capability_media_response_audio",
+          "parameters": {
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/actions_capability_account_linking",
+          "parameters": {
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/google_assistant_input_type_voice",
+          "parameters": {
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/defaultwelcomeintent-followup",
+          "lifespanCount": 1,
+          "parameters": {
+            "given-name": "Apoorv",
+            "given-name.original": "apoorv",
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        },
+        {
+          "name": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q/contexts/__system_counters__",
+          "parameters": {
+            "no-input": 0,
+            "no-match": 0,
+            "userName": "Apoorv",
+            "userName.original": "apoorv",
+            "userweight": "weight",
+            "userweight.original": "weight",
+            "last_weight_log": "last",
+            "last_weight_log.original": "yesterday"
+          }
+        }
+      ],
+      "intent": {
+        "name": "projects/smart-weight-tracker/agent/intents/4206ed42-037e-4cad-8fb2-ca1845e96836",
+        "displayName": "last_weight_log"
+      },
+      "intentDetectionConfidence": 1,
+      "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+      "source": "google",
+      "version": "2",
+      "payload": {
+        "user": {
+          "locale": "en-US",
+          "lastSeen": "2020-06-04T17:46:20Z",
+          "userVerificationStatus": "VERIFIED"
+        },
+        "conversation": {
+          "conversationId": "ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q",
+          "type": "ACTIVE",
+          "conversationToken": "[\"welcome\",\"defaultwelcomeintent-followup\"]"
+        },
+        "inputs": [
+          {
+            "intent": "actions.intent.TEXT",
+            "rawInputs": [
+              {
+                "inputType": "VOICE",
+                "query": "what was my weight yesterday"
+              }
+            ],
+            "arguments": [
+              {
+                "name": "text",
+                "rawText": "what was my weight yesterday",
+                "textValue": "what was my weight yesterday"
+              }
+            ]
+          }
+        ],
+        "surface": {
+          "capabilities": [
+            {
+              "name": "actions.capability.SCREEN_OUTPUT"
+            },
+            {
+              "name": "actions.capability.AUDIO_OUTPUT"
+            },
+            {
+              "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+            },
+            {
+              "name": "actions.capability.ACCOUNT_LINKING"
+            }
+          ]
+        },
+        "isInSandbox": true,
+        "availableSurfaces": [
+          {
+            "capabilities": [
+              {
+                "name": "actions.capability.WEB_BROWSER"
+              },
+              {
+                "name": "actions.capability.SCREEN_OUTPUT"
+              },
+              {
+                "name": "actions.capability.AUDIO_OUTPUT"
+              }
+            ]
+          }
+        ],
+        "requestType": "SIMULATOR"
+      }
+    },
+    "session": "projects/smart-weight-tracker/agent/sessions/ABwppHFbeFqEItbWgY7Ha4H_B7IRjtnATvneCqjMVbJeaFfkOA2vawDH6CGziie2iLk5c7Nnnrw9pGz5SYDV3GsVU-Q"
+  }
