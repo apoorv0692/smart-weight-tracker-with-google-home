@@ -19,10 +19,12 @@ failed_to_add_weight = {
     }
     }
 
-failed_to_add_weight_resp = json.dumps(failed_to_add_weight)
+# failed_to_add_weight_resp = json.dumps(failed_to_add_weight)
 
-def main(request):
-    req_data = request.get_json()
+def handler(event, context):
+    print(json.dumps(event))
+    # req_data = json.loads(event['body'])
+    req_data = event
     print (req_data)
     if 'queryResult' not in req_data:
         b = print('invalid input')
@@ -35,10 +37,14 @@ def main(request):
     print('user name is ' + usrName)
     
     try:
+        print('inserting data')
         app.insertTodb(usrWeight,usrName)
     except Exception as ex: #pylint: disable=broad-except
         print (ex)
-        return failed_to_add_weight_resp
+        return {
+        "statusCode": 200,
+        "body": json.dumps(failed_to_add_weight)
+    }
 
     weight_intent_resp = {
     "payload": {
@@ -56,7 +62,5 @@ def main(request):
         }
     }
     }
-
-    weight_intent_resp_ga = json.dumps(weight_intent_resp)
-    return weight_intent_resp_ga
+    return weight_intent_resp
 
