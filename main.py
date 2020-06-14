@@ -4,12 +4,12 @@ import json
 ga_response = {
     "payload": {
         "google": {
-        "expectUserResponse": "true",
+        "expectUserResponse": True,
         "richResponse": {
             "items": [
             {
                 "simpleResponse": {
-                "textToSpeech": ""
+                "textToSpeech": "null"
                 }
             }
             ]
@@ -18,49 +18,71 @@ ga_response = {
     }
     }
 
-def main(request):
-    req_data = request.get_json()
-    print (req_data)
+def handler(event, context):
+    print(json.dumps(event))
+    # req_data = json.loads(event['body'])
+    # req_data = event
 
-    if 'queryResult' not in req_data and 'intent' not in req_data :
+    if 'queryResult' not in event:
         print('invalid input')
-        textToSpeech = "Oh oo, This is an invalid input."
-        ga_response['payload']['google']['richResponse']['items'][0]['textToSpeech'] = textToSpeech
-        invalid_input_resp = json.dumps(ga_response)
-        return invalid_input_resp
+        textToSpeech = "This is an invalid input."
+        ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+        return ga_response
 
-    if req_data['intent']['displayName'] == "User Weight" : 
-        usrWeight = str(req_data['queryResult']['parameters']['unit-weight']["amount"])
-        # print('user input is ' + usrWeight)
-
-        usrName = req_data['queryResult']['parameters']['userName']
+    if event['queryResult']['intent']['displayName'] == "user_weight" : 
+        usrWeight = event['queryResult']['parameters']['unit-weight']["amount"]
+        # print('user input is ' + str(usrWeight))
+        usrName = event['queryResult']['parameters']['userName']
         # print('user name is ' + usrName)
         
         try:
             app.insertWeight(usrWeight,usrName)
         except Exception as ex: #pylint: disable=broad-except
             print (ex)
-            textToSpeech = "Oh oo, I am unable to add this log, Is there anything else that i can do for you "
-            ga_response['payload']['google']['richResponse']['items'][0]['textToSpeech'] = textToSpeech
-            failed_to_add_weight_resp = json.dumps(ga_response)
-            return failed_to_add_weight_resp
+            textToSpeech = "I am unable to add this log, Please try again later"
+            ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+            return ga_response
 
-        textToSpeech = "Great! your today's weight " + usrWeight + " is logged. Is there anything else that i can do for you " + usrName 
-        ga_response['payload']['google']['richResponse']['items'][0]['textToSpeech'] = textToSpeech
-        weight_intent_resp_ga = json.dumps(ga_response)
-        return weight_intent_resp_ga
+        textToSpeech = "Great! your today's weight " + str(usrWeight) + " is logged. Is there anything else that I can do for you?" 
+        ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+        return ga_response
 
 
-    elif req_data['intent']['displayName'] == "last_weight_log" :
+    elif event['queryResult']['intent']['displayName'] == "last_weight_log":
+        usrName = event['queryResult']['parameters']['userName']
         try:
-            app.fetchLastLog(usrName)
+            last_log = app.fetchLastLog(usrName)
         except Exception as ex: #pylint: disable=broad-except
             print (ex)
             textToSpeech = "Oh oo, I am unable to fetch last log, Please try again later"
-            ga_response['payload']['google']['richResponse']['items'][0]['textToSpeech'] = textToSpeech
-            failed_to_add_weight_resp = json.dumps(ga_response)
-            return failed_to_add_weight_resp
-    else:
-        #don nothing
+            ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+            return ga_response
+    
+        textToSpeech = "Your last weight logged was " + last_log + " kilogram. Is there anything else that I can do for you?" 
+        ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+        return ga_response
+
+    elif event['queryResult']['intent']['displayName'] == "weight_change":
+        usrName = event['queryResult']['parameters']['userName']
+        period = str(event['queryResult']['parameters']['change_period'])
+
+        try:
+            weight_result = app.caluculate_diff(usrName,period)
+        except Exception as ex: #pylint: disable=broad-except
+            print (ex)
+            textToSpeech = "Sorry, I do not have sufficient data needed"
+            ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+            return ga_response
+
+        if weight_result['amount'] == "unknown":
+            textToSpeech = weight_result['result']
+        else:
+            if weight_result['result'] == "gain":
+                textToSpeech = usrName.capitalize() + ", You have gained " + str(weight_result['amount']) + " kilogram in last " + period + " days. Thank you for using Smart weight tracker"
+            else:
+                textToSpeech = "Hoorah, You have lost " + str(weight_result['amount']) + " kilogram in last " + period + " days.Keep it going. Thank you for using Smart weight tracker"
+        ga_response['payload']['google']['expectUserResponse'] = False
+        ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+        return ga_response
     
 

@@ -1,13 +1,13 @@
 service: smart-weight-tracker
 
 provider:
-  name: google
+  name: aws
   profile: avi92avi
-  runtime: python37
+  runtime: python3.7
   region: us-east-1
   project: smart-weight-tracker
-  # memorySize: 256
-  # timeout: 300
+  memorySize: 256
+  timeout: 300
  
 package:
   exclude:
@@ -23,9 +23,10 @@ functions:
     handler: main.handler
     events:
       - http:
-        method: post
-        cors: true # @cors_headers() from lambda_decorators package also used on functions
-        Content-Type: application/json
+          path: /
+          method: post
+          cors: true # @cors_headers() from lambda_decorators package also used on functions
+          # Content-Type: application/json
 
 plugins:
   - serverless-python-requirements
@@ -36,11 +37,11 @@ custom:
   pythonRequirements:
     pythonBin: "/usr/bin/python3"
   customDomain:
-    domainName: swt.apoorv.sh
+    domainName: 'swtapi.aws.apoorv.sh'
     # stage: ci
-    # basePath: api
-    certificateName: '*.apoorv.sh'
+    basePath: ''
     createRoute53Record: true
+    certificateName: '*.aws.apoorv.sh'  
     # endpointType: 'regional'
     # securityPolicy: tls_1_2
     # apiType: rest
