@@ -1,15 +1,16 @@
 import json
 import pymongo
 import datetime
+import os
+
+mongodb_user = os.environ['MONGODB_USER']
+mongodb_password = os.environ['MONGODB_PASSWORD']
+mongodb_string="mongodb+srv://" + mongodb_user + ":" + mongodb_password + "@cluster0-5yoef.mongodb.net/smart_weight_tracker?retryWrites=true&w=majority"
 
 # https://pymongo.readthedocs.io/en/stable/api/pymongo/cursor.html#pymongo.cursor.CursorType.EXHAUST
 #decalre db client
-client = pymongo.MongoClient("mongodb+srv://smart_weight_tracker:2HK7CFMrobkE1ybY@cluster0-5yoef.gcp.mongodb.net/test?retryWrites=true&w=majority")
-db=client.smart_weight_tracker
-
-
-# atlas_user = "smart_weight_tracker"
-# atlas_pass = "2HK7CFMrobkE1ybY"
+client = pymongo.MongoClient(mongodb_string)
+db = client.smart_weight_tracker
 
 def insertWeight(usrWeight,usrName):
     userWeight = int(usrWeight)
@@ -26,10 +27,14 @@ def insertWeight(usrWeight,usrName):
 def fetchLastLog(usrName):
     userName = usrName.lower()
     myCursor=db.weightLog.find({"name":userName}).sort('date',pymongo.DESCENDING).limit(1)
+    if myCursor.count() == 0 : 
+        respMsg = "I dont think you have started loging weight here. You can start today!" 
+        return respMsg
     for doc in myCursor:
         print(doc)
         last_weight=str(doc['weight'])
-    return last_weight
+        respMsg = "Your last weight logged was " + last_weight + " kilogram. Is there anything else that I can do for you?" 
+    return respMsg
 
 
 def caluculate_diff(userName,period):

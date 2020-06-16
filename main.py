@@ -58,7 +58,7 @@ def handler(event, context):
             ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
             return ga_response
     
-        textToSpeech = "Your last weight logged was " + last_log + " kilogram. Is there anything else that I can do for you?" 
+        textToSpeech = last_log
         ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
         return ga_response
 
