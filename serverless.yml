@@ -4,10 +4,13 @@ provider:
   name: aws
   profile: avi92avi
   runtime: python3.7
-  region: us-east-1
+  region: ap-south-1
   project: smart-weight-tracker
   memorySize: 256
-  timeout: 300
+  timeout: 30
+  environment:
+    MONGODB_USER: ${ssm:MONGODB_USER}	
+    MONGODB_PASSWORD: ${ssm:MONGODB_PASSWORD}	
  
 package:
   exclude:
@@ -25,13 +28,33 @@ functions:
       - http:
           path: /
           method: post
-          cors: true # @cors_headers() from lambda_decorators package also used on functions
-          # Content-Type: application/json
+          cors: true
+          private: true
 
 plugins:
   - serverless-python-requirements
   - serverless-domain-manager
 
+resources:
+  Resources:
+    MyServiceUsagePlan:
+      Type: "AWS::ApiGateway::UsagePlan"
+      DependsOn: ApiGatewayRestApi
+      Properties:
+        UsagePlanName: swt-usagePlan
+        ApiStages:
+          - ApiId:
+              Ref: ApiGatewayRestApi
+            Stage: dev
+    
+    MyServiceUsagePlanKey:
+      Type: "AWS::ApiGateway::UsagePlanKey"
+      DependsOn: MyServiceUsagePlan
+      Properties :
+        KeyId: ${ssm:SWT_API_KEY}	      
+        KeyType: API_KEY
+        UsagePlanId:
+          Ref: MyServiceUsagePlan
 
 custom:
   pythonRequirements:
@@ -45,3 +68,4 @@ custom:
     # endpointType: 'regional'
     # securityPolicy: tls_1_2
     # apiType: rest
+    

@@ -1,0 +1,228 @@
+{
+    "responseId": "8315df84-c646-469d-a537-2236a7460388-2db64ae0",
+    "queryResult": {
+        "queryText": "How much weight have I lost in 7 days",
+        "parameters": {
+            "change_period": "7",
+            "change_type": [
+                "lost"
+            ],
+            "userName": "Abhishek"
+        },
+        "allRequiredParamsPresent": true,
+        "fulfillmentText": "Let's find it out",
+        "fulfillmentMessages": [
+            {
+                "text": {
+                    "text": [
+                        "Let's find it out"
+                    ]
+                }
+            }
+        ],
+        "outputContexts": [
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/welcome",
+                "lifespanCount": 5,
+                "parameters": {
+                    "given-name": "Abhishek",
+                    "given-name.original": "abhishek",
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/actions_capability_media_response_audio",
+                "parameters": {
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/actions_capability_audio_output",
+                "parameters": {
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/actions_capability_screen_output",
+                "parameters": {
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/actions_capability_account_linking",
+                "parameters": {
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/google_assistant_input_type_voice",
+                "parameters": {
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/defaultwelcomeintent-followup",
+                "lifespanCount": 1,
+                "parameters": {
+                    "given-name": "Abhishek",
+                    "given-name.original": "abhishek",
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            },
+            {
+                "name": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8/contexts/__system_counters__",
+                "parameters": {
+                    "no-input": 0,
+                    "no-match": 0,
+                    "change_period": "7",
+                    "change_period.original": "7",
+                    "change_type": [
+                        "lost"
+                    ],
+                    "change_type.original": [
+                        "lost"
+                    ],
+                    "userName": "Abhishek",
+                    "userName.original": "abhishek"
+                }
+            }
+        ],
+        "intent": {
+            "name": "projects/smart-weight-tracker/agent/intents/cabb7a70-e73d-49d0-8d7e-a3cd287f5280",
+            "displayName": "weight_change"
+        },
+        "intentDetectionConfidence": 1,
+        "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+        "source": "google",
+        "version": "2",
+        "payload": {
+            "user": {
+                "locale": "en-US",
+                "lastSeen": "2020-06-12T19:51:20Z",
+                "userVerificationStatus": "VERIFIED"
+            },
+            "conversation": {
+                "conversationId": "ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8",
+                "type": "ACTIVE",
+                "conversationToken": "[\"welcome\",\"defaultwelcomeintent-followup\"]"
+            },
+            "inputs": [
+                {
+                    "intent": "actions.intent.TEXT",
+                    "rawInputs": [
+                        {
+                            "inputType": "VOICE",
+                            "query": "How much weight have I lost in 7 days"
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "rawText": "How much weight have I lost in 7 days",
+                            "textValue": "How much weight have I lost in 7 days"
+                        }
+                    ]
+                }
+            ],
+            "surface": {
+                "capabilities": [
+                    {
+                        "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+                    },
+                    {
+                        "name": "actions.capability.AUDIO_OUTPUT"
+                    },
+                    {
+                        "name": "actions.capability.SCREEN_OUTPUT"
+                    },
+                    {
+                        "name": "actions.capability.ACCOUNT_LINKING"
+                    }
+                ]
+            },
+            "isInSandbox": true,
+            "availableSurfaces": [
+                {
+                    "capabilities": [
+                        {
+                            "name": "actions.capability.AUDIO_OUTPUT"
+                        },
+                        {
+                            "name": "actions.capability.SCREEN_OUTPUT"
+                        },
+                        {
+                            "name": "actions.capability.WEB_BROWSER"
+                        }
+                    ]
+                }
+            ],
+            "requestType": "SIMULATOR"
+        }
+    },
+    "session": "projects/smart-weight-tracker/agent/sessions/ABwppHGVhuKMnRiQZSw6bLW_MOuOsENtBTyEtGTkotzfizn6mA2wNebADXVe8kxD_0wqSNU1ZC6XRagfhmlMk6csQD8"
+}
