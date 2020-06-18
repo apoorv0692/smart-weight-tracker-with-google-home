@@ -33,7 +33,7 @@ def fetchLastLog(usrName):
     for doc in myCursor:
         print(doc)
         last_weight=str(doc['weight'])
-        respMsg = "Your last weight logged was " + last_weight + " kilogram. Is there anything else that I can do for you?" 
+        respMsg = "Your last logged weight was " + last_weight + " kilogram. Is there anything else that I can do for you?" 
     return respMsg
 
 

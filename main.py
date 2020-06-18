@@ -45,6 +45,7 @@ def handler(event, context):
 
         textToSpeech = "Great! your today's weight " + str(usrWeight) + " is logged. Is there anything else that I can do for you?" 
         ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+        ga_response['payload']['google']['expectUserResponse'] = True
         return ga_response
 
 
@@ -60,6 +61,7 @@ def handler(event, context):
     
         textToSpeech = last_log
         ga_response['payload']['google']['richResponse']['items'][0]['simpleResponse']['textToSpeech'] = textToSpeech
+        ga_response['payload']['google']['expectUserResponse'] = True
         return ga_response
 
     elif event['queryResult']['intent']['displayName'] == "weight_change":
