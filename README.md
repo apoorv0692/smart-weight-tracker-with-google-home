@@ -24,4 +24,4 @@ This project is in phase one where I have created 3 functionalities
 https://developers.google.com/assistant/identity/oauth-concept-guide
 
 
-![Image description](.resources/smart_weight_tracker.png)
+![Image description](./resources/smart_weight_tracker.png)
