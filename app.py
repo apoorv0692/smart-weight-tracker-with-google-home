@@ -13,7 +13,7 @@ client = pymongo.MongoClient(mongodb_string)
 db = client.smart_weight_tracker
 
 def insertWeight(usrWeight,usrName):
-    userWeight = int(usrWeight)
+    userWeight = usrWeight
     userName = usrName.lower()
     todaysdate = datetime.datetime.today()
     insertWeight = {
@@ -28,12 +28,18 @@ def fetchLastLog(usrName):
     userName = usrName.lower()
     myCursor=db.weightLog.find({"name":userName}).sort('date',pymongo.DESCENDING).limit(1)
     if myCursor.count() == 0 : 
-        respMsg = "I dont think you have started loging weight here. You can start today!" 
+        respMsg = {
+            "textResp" : "It seems you have not started loging your weight with Smart Weight Tracker. Don't worry, you can start today. Thank you for using Smart Weight Tracker.",
+            "expectUserResponse" : False
+        }
         return respMsg
     for doc in myCursor:
         print(doc)
         last_weight=str(doc['weight'])
-        respMsg = "Your last logged weight was " + last_weight + " kilogram. Is there anything else that I can do for you?" 
+        respMsg = {
+            "textResp" : "Your last logged weight was " + last_weight + " kilograms. Is there anything else that I can do for you?" ,
+            "expectUserResponse" : True
+        }
     return respMsg
 
 
@@ -45,11 +51,11 @@ def caluculate_diff(userName,period):
         print("mostrecent log not found")
         return {
             "amount" : "unknown",
-            "result" : "Sorry, I do not have sufficient data needed" 
+            "result" : "Sorry, I do not have sufficient data needed, continue logging your weight for a few more days and you will be good to go. Thank you for using Smart Weight Tracker" 
         }
     for log in mostRecentLog:
         print(log)
-        mostRecentweightLog = log['weight']
+        mostRecentweightLog = float(log['weight'])
         
     # todaysDate = datetime.date.today()
     lastdate = datetime.date.today() - datetime.timedelta(days=period)
@@ -78,25 +84,30 @@ def caluculate_diff(userName,period):
             print("data not found for 10 days")
             return {
             "amount" : "unknown",
-            "result" : "Sorry, I do not have sufficient data needed" 
+            "result" : "Sorry, I do not have sufficient data needed. Continue logging weight for a few more days and you will be good to go. Thank you for using Smart Weight Tracker" 
         }
     
     for doc in myCursor:
         print(doc)
-        oldWeightLog = doc['weight']
+        oldWeightLog = float(doc['weight'])
 
-    weight_diff = oldWeightLog - mostRecentweightLog
+    weight_diff = round((oldWeightLog - mostRecentweightLog),1)
     print("weight diff is " + str(weight_diff))
     if float(weight_diff) > 0 : 
         outMsg = {
             "amount" : weight_diff,
             "result" : "lost" 
         }
-    else :
+    elif float(weight_diff) < 0:
         outMsg = {
             "amount" : -weight_diff,
             "result" : "gain" 
         }
+    elif float(weight_diff) == 0:
+            outMsg = {
+            "amount" : weight_diff,
+            "result" : "none"
+        }    
     print(outMsg)
     return outMsg
 
